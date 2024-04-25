@@ -116,10 +116,10 @@ function App() {
       );
       
       if (querySnapshot.docs.length > 0) {
-        toast.error("Movie already added in to cart");
+        toast.error("already added in to cart");
       } else {
         const docRef = await addDoc(collectionRef, userSavedata);
-        toast.success("Movie  added  to cart");
+        toast.success("added  to cart");
       }
 
       // console.log("Document written with ID:", docRef.id);

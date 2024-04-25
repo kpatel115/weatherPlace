@@ -106,7 +106,7 @@ function Cart() {
                   <div className="relative h-[300px] w-full  ">
                     <Image
                       src={item.image?.url}
-                      alt={`Poster for ${item.title}`}
+                      alt={`Poster for ${item.name}`}
                       layout="fill"
                       objectFit="cover"
                     />
@@ -114,7 +114,7 @@ function Cart() {
 
                   <div>
                     <p className="text-center text-[18px] font-[700] py-3">
-                      {item.title}
+                      {item.name}
                     </p>
 
                     <div className="flex justify-between">
