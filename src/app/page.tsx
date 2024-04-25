@@ -1,5 +1,6 @@
 "use client";
-import {React, useState, useEffect } from 'react';
+
+import React, {useState, useEffect } from 'react';
 // import ConfirmationModal from '../components/ConfirmationModal';
 import axios from 'axios';
 import Modal from "../components/Modal";
@@ -165,6 +166,7 @@ function App() {
             <input
               className="block bg-white w-[60%] h-[60px] rounded-[5px] px-3 outline-none text-black"
               type="text"
+              name='city'
               value={city}
               onChange={onChangeHandler}
             ></input>

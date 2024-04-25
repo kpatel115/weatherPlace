@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useGetData } from "../custom-hook/DetailsData";
 import Image from "next/image";
 
 // just to display the stuff
