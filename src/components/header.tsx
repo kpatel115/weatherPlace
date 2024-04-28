@@ -9,7 +9,7 @@ function Header() {
   return (
     <div className="bg-white  p-3 flex justify-between items-center">
       <div className="text-center text-[24px] font-[700] text-black">
-        <Link href={"/"}>LOGO</Link>
+        <Link href={"/"}>WeatherPlace</Link>
       </div>
       <div className="flex gap-5 ">
         {" "}

@@ -4,13 +4,12 @@ import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBmLyKq_iniKcedDdDNeMxdRDp_ewUOV6w",
-  authDomain: "ecstatic-emblem-268211.firebaseapp.com",
-  databaseURL: "https://ecstatic-emblem-268211-default-rtdb.firebaseio.com",
-  projectId: "ecstatic-emblem-268211",
-  storageBucket: "ecstatic-emblem-268211.appspot.com",
-  messagingSenderId: "837040977434",
-  appId: "1:837040977434:web:cccfbff83ec1809f9683a3",
+  apiKey: "AIzaSyAlfqXxoxYzDEAbMwUgWq24WTVZfIpCmDs",
+  authDomain: "weatherplace-f5d20.firebaseapp.com",
+  projectId: "weatherplace-f5d20",
+  storageBucket: "weatherplace-f5d20.appspot.com",
+  messagingSenderId: "710805357131",
+  appId: "1:710805357131:web:090d3e03e871edcd3583ce"
 };
 
 // Initialize Firebase

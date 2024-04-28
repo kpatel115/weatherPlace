@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useState, useEffect } from 'react';
 // import ConfirmationModal from '../components/ConfirmationModal';
 import axios from 'axios';
@@ -6,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 import { auth, db } from "../../library/firebase";
 import { toast, Toast } from "../components/Toast";
-import Image from "next/image";
 import {
   collection,
   addDoc,
@@ -52,10 +53,6 @@ function App() {
       };
   };
 
-  // const onClickDetails = () => {
-  //   setMovieID(movieID)
-  // }
-
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
@@ -63,11 +60,12 @@ function App() {
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFinalPoint(city);
+    setBackgroundUrl(`https://source.unsplash.com/1600x900/?${city}`)
   };
 
   const handleOpen = (item: any) => {
     setOpen(item);
-    console.log(item, "itemssssss");
+    console.log(item, "items");
   };
   const handleClose = () => {
     setOpen(null);
@@ -93,15 +91,15 @@ function App() {
 
   const dataSaveInFirebaseHandler = async (data: any) => {
     try {
-      console.log(data.id, "dat");
+      console.log(data.id, "data");
 
       let userSavedata = {
         userId,
         ...data,
       };
 
-      const collectionRef = collection(db, "Movies");
-      console.log(collectionRef, "collectionRef");
+      const collectionRef = collection(db, "weatherPlace");
+      console.log(collectionRef, "User");
 
       // const docRef = await addDoc(collectionRef, userSavedata);
       // console.log(docRef, "docRef")
@@ -129,7 +127,7 @@ function App() {
   const addDocumentAndGetId = async () => {
     try {
       // Assuming "MoviesName" is your collection name
-      const collectionRef = collection(db, "Movies");
+      const collectionRef = collection(db, "weatherPlace");
 
       // Add a document to the collection
       const querySnapshot = await getDocs(
@@ -155,14 +153,14 @@ function App() {
 
     <div className="min-h-screen bg-black" style={{ backgroundImage: `url(${backgroundURL})` }}>
       <Header />
-      <div className="py-5">
-
-        <p className="text-center text-[30px] font-[700]">Enter a City </p>
-        
+      <div className="container mx-auto py-10">
+        <div className='rounded-lg bg-gray-300 bg-opacity-50 p-8 mx-auto max-w-lg shadow-lg'>
+        <p className="text-white text-3xl font-semibold text-center mb-6">Enter a City </p>
+        </div>
         <form onSubmit={submitHandler}>
           <div className="flex justify-center items-center my-3">
             <input
-              className="block bg-white w-[60%] h-[60px] rounded-[5px] px-3 outline-none text-black"
+              className="block w-3/4 bg-white rounded-lg px-4 py-2 text-gray-800 focus:outline-none"
               type="text"
               name='city'
               value={city}
@@ -171,7 +169,7 @@ function App() {
           </div>
           <div className="flex justify-center items-center ">
             <button
-              className="bg-[#E9222D] py-3  lg:w-[100px] w-[80px] rounded-[5px] text-white  text-[16px]"
+              className="ml-4 px-6 py-3 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 focus:outline-none"
               type="submit"
             >
               Submit
@@ -179,7 +177,7 @@ function App() {
           </div>
         </form>
 
-        <div className="w-[90%] mx-auto mb-5">
+        <div className="w-[40%] mx-auto mb-5 flex flex-col justify-center align-middle">
 
         {weatherData && <DataCard weatherData={weatherData} />}
         <div className="flex justify-between">
@@ -187,7 +185,7 @@ function App() {
 
                       <button
                         onClick={() => dataSaveInFirebaseHandler(weatherData)}
-                        className="bg-[#54AEFF] p-2  px-2 rounded-[5px] text-white"
+                        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none"
                       >
                         Add to cart
                       </button>

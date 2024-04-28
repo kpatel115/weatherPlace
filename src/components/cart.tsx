@@ -47,7 +47,7 @@ function Cart() {
 
   const getdataofFirbase = async () => {
     try {
-      const collectionRef = collection(db, "Movies");
+      const collectionRef = collection(db, "weatherPlace");
 
       const querySnapshot = await getDocs(
         query(collectionRef, where("userId", "==", userId))
@@ -76,7 +76,7 @@ function Cart() {
   const deleteDocumentsBasedOnQuery = async (docId: any) => {
     setLoading(true);
     try {
-      const collectionRef = collection(db, "Movies");
+      const collectionRef = collection(db, "weatherPlace");
       await deleteDoc(doc(collectionRef, docId));
       getdataofFirbase();
       setLoading(docId);
@@ -123,7 +123,7 @@ function Cart() {
                         className="bg-[#E20031] text-white p-2 px-6 rounded-[5px]"
                         onClick={() => handleOpen(item)}
                       >
-                        Details
+                      Update
                       </button>
 
                       <button
